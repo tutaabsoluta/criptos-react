@@ -22,10 +22,12 @@ const InputSubmit = styled.input`
   }
 `;
 
-const Formulario = () => {
+const Formulario = ({setMonedas}) => {
   const [criptos, setCriptos] = useState([]);
   const [error, setError] = useState(false);
 
+  // El primer elemento del array es el state del valor seleccionado del Select
+  // El segundo elemento del array es la funcion que renderiza el Select con las opciones
   const [moneda, SelectMonedas] = useSelectMonedas("Elige tu Moneda", monedas);
   const [criptomoneda, SelectCriptoMoneda] = useSelectMonedas(
     "Elige tu Criptomoneda",
@@ -65,6 +67,12 @@ const Formulario = () => {
     }
 
     setError(false);
+
+    // Llenamos el objeto con la moneda y la cripto para luego cotizar en la API
+    setMonedas({
+      moneda,
+      criptomoneda
+    })
   };
   return (
     <>
