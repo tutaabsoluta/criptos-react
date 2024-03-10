@@ -19,6 +19,7 @@ const Select = styled.select `
 
 const useSelectMonedas = (label, opciones) => {
   
+    // El objeto se llena con las opciones seleccionadas en el form
     const [state, setState] = useState('')
     const selectMonedas = () => (
     <>
